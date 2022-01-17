@@ -185,7 +185,6 @@ echo -e '\e[34mModified files\e[35m'
 git status | sed -n "s/^.*modified:\s*\(.*$extension\).*/\1 /p"
 echo -e '\e[0m'
 
-
 if [[ $fileName == "" ]]
 then
  # Create patch locally
@@ -206,5 +205,4 @@ else
  echo "ssh.exe -p $port \"$user@$computer\" \"cd $remotePath/;git checkout $fileName;git apply $patchName;make $makearg;\""
  ssh.exe -p $port "$user@$computer" "cd $remotePath/;git checkout $fileName;git apply $patchName;make $makearg;" 
 fi
-
 cd $currPath
